@@ -22,7 +22,7 @@ const { join } = require('path');
             }
         }
     } else {
-        console.log(`::debug::No devependencies found in package.json`)
+        console.log(`::notice file=package.json::No devependencies found in package.json`)
     }
 
     if (dependencies) {
@@ -36,7 +36,7 @@ const { join } = require('path');
             }
         }
     } else {
-        console.log(`::debug::No dependencies found in package.json`)
+        console.log(`::notice file=package.json::No dependencies found in package.json`)
     }
 
     if (failed) {
