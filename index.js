@@ -6,26 +6,27 @@ const { join } = require('path');
     const { devDependencies, dependencies } = packageJson;
 
     console.log(`Validating the following development dependencies:`)
-    console.table(devDependencies);
 
     for (const [key, value] of Object.entries(devDependencies)) {
+        console.log(`Checking ${key} - ${value}...`)
         if (/^\^/.test(value) || /^~/.test(value)) {
-            console.warn(`devDependencies ${key} version is not fixed`);
+            console.log(`::warning::devDependencies ${key} version is not fixed: ${value}`);
             failed = true;
         }
     }
 
     console.log(`Validating the following dependencies:`)
-    console.table(dependencies);
 
     for (const [key, value] of Object.entries(dependencies)) {
+        console.log(`Checking ${key} - ${value}...`)
         if (/^\^/.test(value) || /^~/.test(value)) {
-            console.warn(`dependencies ${key} version is not fixed`);
+            console.log(`::warning::dependencies ${key} version is not fixed: ${value}`);
             failed = true;
         }
     }
 
     if (failed) {
+        console.log(`::error::Found unpinned dependencies~!`);
         process.exit(1);
     }
 })();
