@@ -1,6 +1,6 @@
 const { exec } = require('child_process');
 const { promisify } = require('util');
-const { stat } = require('fs/promises');
+const { stat, readFile } = require('fs/promises');
 const { join } = require('path');
 const asyncExec = promisify(exec);
 (async () => {
@@ -16,6 +16,8 @@ const asyncExec = promisify(exec);
             process.exit(1);
         }
         const packageJson = require(path);
+        const string = await readFile(path, 'utf-8');
+        const lines = string.split('\n');
         const { devDependencies, dependencies } = packageJson;
 
         if (devDependencies) {
@@ -24,7 +26,8 @@ const asyncExec = promisify(exec);
             for (const [key, value] of Object.entries(devDependencies)) {
                 console.log(`Checking ${key} - ${value}...`)
                 if (/^\^/.test(value) || /^~/.test(value)) {
-                    console.log(`::warning file=${file}::devDependencies ${key} version is not fixed: ${value}`);
+                    const line = lines.findIndex(line => line.includes(key));
+                    console.log(`::warning file=${file},line=${line + 1}::devDependencies ${key} version is not fixed: ${value}`);
                     failed = true;
                 }
             }
@@ -38,7 +41,8 @@ const asyncExec = promisify(exec);
             for (const [key, value] of Object.entries(dependencies)) {
                 console.log(`Checking ${key} - ${value}...`)
                 if (/^\^/.test(value) || /^~/.test(value)) {
-                    console.log(`::warning file=${file}::dependencies ${key} version is not fixed: ${value}`);
+                    const line = lines.findIndex(line => line.includes(key));
+                    console.log(`::warning file=${file},line=${line + 1}::dependencies ${key} version is not fixed: ${value}`);
                     failed = true;
                 }
             }
