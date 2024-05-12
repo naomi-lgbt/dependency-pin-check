@@ -1,0 +1,10 @@
+name: "Naomi's Dependency Validator"
+description: "A basic action to confirm that all npm dependencies are pinned."
+author: "Naomi Carrigan"
+branding:
+  icon: "alert-octagon"
+  color: "purple"
+
+runs:
+  using: "node16"
+  main: "index.js"
