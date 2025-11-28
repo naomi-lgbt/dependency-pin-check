@@ -19,7 +19,7 @@ This is a GitHub Action to check that your Node.js dependencies in your `package
 
 ## Live Version
 
-This page is currently deployed. [View the live website.]
+This page is currently deployed. [View the live website.](https://github.com/marketplace/actions/dependency-pin-check)
 
 ## Feedback and Bugs
 
