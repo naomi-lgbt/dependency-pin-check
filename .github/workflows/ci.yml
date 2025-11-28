@@ -22,11 +22,14 @@ jobs:
           node-version: 24
 
       - name: Validate Dependencies
-        uses: naomi-lgbt/dependency-pin-check
+        uses: naomi-lgbt/dependency-pin-check@latest
         with:
             dev-dependencies: true
             peer-dependencies: true
             optional-dependencies: true
+
+      - name: Install Dependencies
+        run: npm install
 
       - name: Build
         run: npm run build
