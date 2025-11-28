@@ -43,7 +43,9 @@ if (!checkOptionalDependencies) {
 }
 
 if (Object.values(failures).every(array => array.length === 0)) {
-    core.setSuccess("Found no unpinned dependencies in configured categories.")
+    core.setOutput("success", true);
+    process.exit(0);
 } else {
     core.setFailed(JSON.stringify(failures, null, 2));
+    process.exit(1);
 }
