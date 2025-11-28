@@ -22,7 +22,7 @@ jobs:
           node-version: 24
 
       - name: Validate Dependencies
-        uses: naomi-lgbt/dependency-pin-check@v0.0.0-rc2
+        uses: naomi-lgbt/dependency-pin-check@v0.0.0-rc3
         with:
             dev-dependencies: true
             peer-dependencies: true
