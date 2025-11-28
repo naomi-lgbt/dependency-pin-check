@@ -1,6 +1,6 @@
 {
   "name": "dependency-pin-check",
-  "version": "0.0.0-rc1",
+  "version": "0.0.0-rc2",
   "description": "Check if the dependencies are pinned in the package.json file",
   "main": "dist/index.js",
   "repository": {
