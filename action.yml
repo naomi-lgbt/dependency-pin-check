@@ -1,5 +1,7 @@
 name: "Dependency Pin Check"
 description: "Check if the dependencies are pinned in the package.json file"
+icon: "search"
+color: "red"
 runs:
   using: "node24"
   main: "dist/index.js"
