@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 const checkForUnpinned = (dependencies) => {
-    return dependencies.filter(dependency => dependency.startsWith("^") || dependency.startsWith("~") || dependency.startsWith(">") || dependency.startsWith("="));
+    return dependencies.filter(([_name, version]) => version.startsWith("^") || version.startsWith("~") || version.startsWith(">") || version.startsWith("="));
 }
 
 const checkDevDependencies = core.getBooleanInput("dev-dependencies", { required: true });

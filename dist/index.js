@@ -27254,7 +27254,7 @@ var coreExports = requireCore();
 var core = /*@__PURE__*/getDefaultExportFromCjs(coreExports);
 
 const checkForUnpinned = (dependencies) => {
-    return dependencies.filter(dependency => dependency.startsWith("^") || dependency.startsWith("~") || dependency.startsWith(">") || dependency.startsWith("="));
+    return dependencies.filter(([_name, version]) => version.startsWith("^") || version.startsWith("~") || version.startsWith(">") || version.startsWith("="));
 };
 
 const checkDevDependencies = core.getBooleanInput("dev-dependencies", { required: true });
