@@ -27269,10 +27269,10 @@ const devDependencies = packageJson.devDependencies;
 const peerDependencies = packageJson.peerDependencies;
 const optionalDependencies = packageJson.optionalDependencies;
 
-const unpinnedDependencies = checkForUnpinned(Object.entries(dependencies));
-const unpinnedDevDependencies = checkForUnpinned(Object.entries(devDependencies));
-const unpinnedPeerDependencies = checkForUnpinned(Object.entries(peerDependencies));
-const unpinnedOptionalDependencies = checkForUnpinned(Object.entries(optionalDependencies));
+const unpinnedDependencies = dependencies ? checkForUnpinned(Object.entries(dependencies)) : [];
+const unpinnedDevDependencies = devDependencies ? checkForUnpinned(Object.entries(devDependencies)) : [];
+const unpinnedPeerDependencies = peerDependencies ? checkForUnpinned(Object.entries(peerDependencies)) : [];
+const unpinnedOptionalDependencies = optionalDependencies ? checkForUnpinned(Object.entries(optionalDependencies)) : [];
 
 const failures = {
     dependencies: unpinnedDependencies,
