@@ -1,0 +1,35 @@
+{
+  "name": "dependency-pin-check",
+  "version": "0.0.0",
+  "description": "Check if the dependencies are pinned in the package.json file",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/naomi-lgbt/dependency-pin-check.git"
+  },
+  "keywords": [
+    "github",
+    "actions",
+    "dependency",
+    "pin",
+    "check"
+  ],
+  "scripts": {
+    "build": "rollup -c rollup.config.js"
+  },
+  "author": "Naomi Carrigan",
+  "license": "See LICENSE",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/naomi-lgbt/dependency-pin-check/issues"
+  },
+  "homepage": "https://github.com/naomi-lgbt/dependency-pin-check#readme",
+  "dependencies": {
+    "@actions/core": "1.11.1"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "29.0.0",
+    "@rollup/plugin-node-resolve": "16.0.3",
+    "rollup": "4.53.3"
+  }
+}
