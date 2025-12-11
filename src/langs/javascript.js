@@ -22,11 +22,11 @@ export const javascriptDependencies = () => {
     required: true,
   });
   const checkPeerDependencies = core.getBooleanInput("peer-dependencies", {
-    required: true,
+    required: false,
   });
   const checkOptionalDependencies = core.getBooleanInput(
     "optional-dependencies",
-    { required: true }
+    { required: false }
   );
 
   const packageFilePath = join(process.cwd(), "package.json");

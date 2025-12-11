@@ -1,6 +1,6 @@
 name: "Dependency Pin Check"
 author: "Naomi Carrigan"
-description: "Check if the dependencies are pinned in the package.json file"
+description: "Check if dependencies are pinned to specific versions (supports multiple languages)"
 branding:
   icon: "search"
   color: "red"
@@ -8,15 +8,21 @@ runs:
   using: "node24"
   main: "dist/index.js"
 inputs:
+  language:
+    description: "Programming language to check dependencies for"
+    required: true
+    type: string
   dev-dependencies:
-    description: "Check if the dev dependencies are pinned"
+    description: "Check if dev dependencies are pinned (not used for Go)"
     required: true
     type: boolean
   peer-dependencies:
-    description: "Check if the peer dependencies are pinned"
-    required: true
+    description: "Check if peer dependencies are pinned (JavaScript only, defaults to false)"
+    required: false
     type: boolean
+    default: "false"
   optional-dependencies:
-    description: "Check if the optional dependencies are pinned"
-    required: true
+    description: "Check if optional dependencies are pinned (JavaScript only, defaults to false)"
+    required: false
     type: boolean
+    default: "false"
