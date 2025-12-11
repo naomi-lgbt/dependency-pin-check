@@ -1,3 +1,8 @@
+/**
+ * @copyright NHCarrigan
+ * @license Naomi's Public License
+ * @author Naomi Carrigan
+ */
 import core from "@actions/core";
 import { readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
